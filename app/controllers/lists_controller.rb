@@ -3,7 +3,6 @@ class ListsController < ApplicationController
   before_action :set_list, only: %i[ show edit update destroy ]
 
   def index
-    @lists = List.all     # Add a database query and assign it to an instance variable (starts with @) to make it available to the view
   end
 
   def show

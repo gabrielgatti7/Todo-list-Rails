@@ -8,3 +8,272 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100%;
+    background-color: #b5a2d9;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 24px;
+}
+
+.logo .menu-icon {
+    color: #333;
+    font-size: 24px;
+    margin-right: 16px;
+}
+
+.logo .title {
+    color: #333;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+/* Menu lateral */
+nav .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 260px;
+    padding: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: all .5s ease;
+}
+
+nav.active .sidebar {
+    left: 0;
+}
+
+.sidebar .sidebar-content {
+    padding: 30px 16px;
+    overflow: auto;
+}
+
+.sidebar-content .list-menu {
+    list-style: none;
+}
+
+.sidebar-content #new-list {
+    border-top: #ccc 1px solid;
+}
+
+.list-menu .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 14px 12px;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+.nav-link .list-link {
+    color: #707070;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.nav-link .icon {
+    color: #707070;
+    font-size: 20px;
+    margin-right: 14px;
+}
+
+/* Botões */
+button {
+    background-color: #b5a2d9;
+    color: #480080;
+    border: 2px solid #000000;
+    padding: .3rem .6rem;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .4s;
+}
+
+button:hover {
+    background-color: #480080;
+    color: #b5a2d9;
+}
+
+button:hover > i {
+    color: #b5a2d9;
+}
+
+button > i {
+    color: #480080;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+input,
+select {
+    padding: .25rem .5rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Cabeçalho da TO DO List */
+.todo-container {
+    max-width: 550px;
+    margin: 7rem auto;
+    background-color: #FDFDFD;
+    padding: 1.5rem;
+}
+
+.todo-container header {
+    text-align: center;
+    padding: 0 1rem 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Titulo da TO DO List */
+#list-title {
+    margin-right: 1rem;
+    display: flex;
+}
+
+#list-title h2 {
+    flex: 1;
+}
+
+#list-title button {
+    margin-left: .4rem;
+}
+
+/* Form de criação de TO DO List */
+#list-form, #edit-list-form {
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+#list-form p,
+#edit-list-form p {
+    margin-bottom: .5rem;
+    font-weight: bold;
+}
+
+/* Form de tarefa da TO DO List */
+#todo-form, #edit-todo-form {
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+#todo-form p,
+#edit-todo-form p {
+    margin-bottom: .5rem;
+    font-weight: bold;
+}
+
+.form-control {
+    display: flex; /* Deixar os botões do lado do input */
+}
+
+.form-control input {
+    margin-right: .3rem; /* Espaçamento entre o input e o botão */
+}
+
+.cancel-edit-btn {
+    margin-top: 1rem; /* Espaçamento entre o botão e o form */
+}
+
+/* Buscar e filtrar */
+#toolbar {
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+}
+
+#toolbar p {
+    margin-bottom: .5rem;
+    font-weight: bold;
+}
+
+#search {
+    border-right: 1px solid #ddd;
+    padding-right: 1rem;
+    margin-right: 1rem;
+    width: 85%;
+    display: flex;
+    flex-direction: column; /* Pesquisar fica em cima do formulário */ 
+}
+
+#search form {
+    display: flex; /* Deixar o input de busca e o botão na mesma linha */
+}
+
+#search input {
+    width: 100%;
+    margin-right: .3rem; /* Espaçamento entre o input e o botão */
+}
+
+#filter {
+    width: 35%;
+    display: flex;
+    flex-direction: column; /* Filtrar fica em cima do select */
+}
+
+#filter select {
+    flex: 1; /* Ocupar todo o espaço disponível */
+}
+
+.todo {
+    display: flex;
+    justify-content: space-around; /* Itens espaçados igualmente */
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    transition: .3s;
+}
+
+.todo h3 {
+    flex: 1;
+    font-size: .9rem;
+}
+
+.todo button {
+    margin-left: .4rem;
+}
+
+.done {
+    background-color: #70339e;
+}
+
+.done h3 {
+    color: #fff;
+    text-decoration: line-through;
+}

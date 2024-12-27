@@ -1,0 +1,37 @@
+<!-- Navegação para acessar as listas criadas -->
+<nav id="menu">
+	<!-- Imagem de expandir e reduzir menu -->
+	<div class="logo">
+		<i class="fa-solid fa-bars menu-icon"></i>
+		<span class="title">TO DO List</span>
+	</div>
+	
+	<div class="sidebar">
+		<!-- Imagem de expandir e reduzir menu -->
+		<div class="logo">
+			<i class="fa-solid fa-bars menu-icon"></i>
+			<span class="title">TO DO List</span>
+		</div>
+		<div class="sidebar-content">
+			<!-- Lista com o nome das listas de to do -->
+			<ul id="lists-list-menu">
+				<% @sidebar_lists.each do |list| %> 
+					<li class="list-menu">
+						<%= link_to list_path(list), class: "nav-link" do %>
+							<span class="list-link"><%= list.name %></span>
+						<% end %>
+					</li>
+				<% end %>
+			</ul>
+			<div id="new-list">
+				<!-- Opção de criação de nova lista -->
+				<li class="list-menu">
+					<%= link_to new_list_path, class: "nav-link" do %>
+						<i class="fa-solid fa-plus icon"></i>
+						<span class="list-link">Nova lista</span>
+					<% end %>
+				</li>
+			</div>
+		</div>
+	</div>
+</nav>
