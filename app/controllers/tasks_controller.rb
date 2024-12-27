@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   def create
     @task = @list.tasks.build(task_params)
     if @task.save
-      redirect_to list_path(@list), notice: 'Tarefa criada com sucesso!'
+      redirect_to list_path(@list), notice: "Tarefa criada com sucesso!"
     else
       render :new
     end
@@ -20,7 +20,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to list_path(@list), notice: 'Tarefa atualizada com sucesso!'
+      redirect_to list_path(@list), notice: "Tarefa atualizada com sucesso!"
     else
       render :edit, status: :unprocessable_entity
     end
