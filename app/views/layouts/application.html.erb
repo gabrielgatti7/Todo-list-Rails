@@ -20,9 +20,51 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- JavaScript for sidebar -->
+    <script>
+      document.addEventListener("turbo:load", function() {
+        const sidebar = document.querySelector('nav'),
+              toggleBtns = document.querySelectorAll('.menu-icon');
+
+        // Save sidebar state to localStorage
+        function saveSidebarState() {
+          if (sidebar.classList.contains("active")) {
+            localStorage.setItem("sidebarState", "collapsed");
+          } else {
+            localStorage.setItem("sidebarState", "expanded");
+          }
+        }
+
+        // Load sidebar state from localStorage
+        function loadSidebarState() {
+          const state = localStorage.getItem("sidebarState");
+          if (state === "collapsed") {
+            sidebar.classList.add("active");
+          } else {
+            sidebar.classList.remove("active");
+          }
+        }
+
+        // Load sidebar state on page load
+        loadSidebarState();
+
+        toggleBtns.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            saveSidebarState();
+          });
+        });
+      });
+    </script>
+
   </head>
 
   <body>
+    <%= render 'layouts/sidebar' %>
     <%= yield %>
   </body>
 </html>
