@@ -16,7 +16,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to @list    # If save is successful, we want to redirect to the new product. When redirect_to is given an Active Record object, Rails generates a path for that record's show action.
+      redirect_to list_path(@list)
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class ListsController < ApplicationController
 
   def update
     if @list.update(list_params)
-      redirect_to @list
+      redirect_to list_path(@list)
     else
       render :edit, status: :unprocessable_entity
     end
