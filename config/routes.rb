@@ -5,7 +5,7 @@
 
 Rails.application.routes.draw do
   resources :lists do
-    resources :tasks, only: [:create, :update, :destroy]
+    resources :tasks, only: [:new, :create, :edit, :update, :destroy]
   end
   root "lists#index" # We can tell Rails the root route should render the Lists index action
 end
