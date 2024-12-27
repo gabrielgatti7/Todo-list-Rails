@@ -1,0 +1,13 @@
+<h1>Lists</h1>
+
+<%= link_to "New list", new_list_path %>
+
+<div id="lists">
+<!-- loops through each product in the @products ActiveRecord::Relation object and renders a <div> tag containing the product name. -->
+  <% @lists.each do |list| %> 
+    <div>
+			<!--  equivalent to <%= link_to list.name, list_path(list) %> 	list_path(list) is a Rails helper method that generates the URL for the show action of the list controller. e.g. /lists/1 -->
+    	<%= link_to list.name, list %>
+    </div>
+  <% end %>
+</div>
