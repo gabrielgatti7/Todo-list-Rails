@@ -1,4 +1,17 @@
-<h1>New list</h1>
+<div class="todo-container">
+	<header>
+		<h1>Nova lista</h1>
+	</header>
 
-<%= render "form", list: @list %>
-<%= link_to "Cancel", lists_path %>
+	<%= form_with(model: @list, id: "list-form") do |form| %>
+		<div class="form-control">
+			<div>
+				<%= form.text_field :name, id: "list-input", placeholder: "Digite o nome da lista" %>
+			</div>
+
+			<div>
+				<button type="submit" id="list-btn"><i class="fas fa-plus"></i></button>
+			</div>
+		</div>
+	<% end %>
+</div>

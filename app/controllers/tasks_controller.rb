@@ -7,7 +7,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to list_path(@list), notice: "Tarefa criada com sucesso!"
     else
-      render 'lists/show', status: :unprocessable_entity
+      render "lists/show", status: :unprocessable_entity
     end
   end
 
