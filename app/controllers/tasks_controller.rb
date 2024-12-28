@@ -2,16 +2,12 @@ class TasksController < ApplicationController
   before_action :set_list
   before_action :set_task, only: %i[ edit update destroy ]
 
-  def new
-    @task = @list.tasks.build
-  end
-
   def create
     @task = @list.tasks.build(task_params)
     if @task.save
       redirect_to list_path(@list), notice: "Tarefa criada com sucesso!"
     else
-      render :new
+      render 'lists/show', status: :unprocessable_entity
     end
   end
 
