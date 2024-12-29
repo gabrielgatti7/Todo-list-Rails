@@ -8,7 +8,7 @@ class TasksController < ApplicationController
       redirect_to list_path(@list), notice: "Tarefa criada com sucesso!"
     else
       flash[:alert] = "A tarefa não pode estar vazia."
-      render "lists/show", status: :unprocessable_entity
+      redirect_to list_path(@list)
     end
   end
 
@@ -20,7 +20,7 @@ class TasksController < ApplicationController
       redirect_to list_path(@list), notice: "Tarefa atualizada com sucesso!"
     else
       flash[:alert] = "A tarefa não pode estar vazia."
-      render :edit, status: :unprocessable_entity
+      redirect_to edit_list_task_path(@list)
     end
   end
 
