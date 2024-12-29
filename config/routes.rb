@@ -11,5 +11,8 @@ Rails.application.routes.draw do
       end
     end
   end
-  root "lists#new" # We can tell Rails the root route should render the Lists new action
+  root "lists#index" # We can tell Rails the root route should render the Lists index action
+
+  # Route to catch any other path
+  match "*path", to: "application#routing_error", via: :all
 end
