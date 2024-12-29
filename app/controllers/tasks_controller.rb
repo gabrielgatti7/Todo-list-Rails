@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_list
-  before_action :set_task, only: %i[ edit update destroy ]
+  before_action :set_task, only: %i[ edit update destroy toggle ]
 
   def create
     @task = @list.tasks.build(task_params)
@@ -25,6 +25,21 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     redirect_to list_path(@list)
+  end
+
+  def toggle
+    @task.completed = !@task.completed
+    if @task.save
+      respond_to do |format|
+        format.html { redirect_to list_path(@task.list), notice: "Tarefa atualizada." }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to list_path(@task.list), alert: "Tarefa não foi atualizada com sucesso." }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
