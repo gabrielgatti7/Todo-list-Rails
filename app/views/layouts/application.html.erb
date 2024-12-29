@@ -58,6 +58,11 @@
             saveSidebarState();
           });
         });
+
+        setTimeout(function () {
+          document.querySelector(".alert").style.display = "none";
+        }, 4000);
+
       });
     </script>
 
@@ -65,6 +70,12 @@
 
   <body>
     <%= render 'layouts/sidebar' %>
-    <%= yield %>
+    <div class="todo-container">
+      <% if notice or alert %>
+        <%= render 'layouts/alert' %>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

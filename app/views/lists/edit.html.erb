@@ -1,15 +1,13 @@
-<div class="todo-container">
-	<header>
-		<h1>Editar nome da lista</h1>
-	</header>
+<header>
+	<h1>Editar nome da lista</h1>
+</header>
 
-	<%= form_with(model: @list, id: "edit-list-form") do |form| %>
-		<div class="form-control">
-			<%= form.text_field :name, id: "edit-list-input" %>
-			<button type="submit" id="edit-list-btn"><i class="fas fa-check"></i></button>
-		</div>
-		<%= button_to list_path(@list), method: :get, class: "cancel-edit-btn" do %>
-			Cancelar
-		<% end %>
+<%= form_with(model: @list, id: "edit-list-form") do |form| %>
+	<div class="form-control">
+		<%= form.text_field :name, id: "edit-list-input" %>
+		<button type="submit" id="edit-list-btn"><i class="fas fa-check"></i></button>
+	</div>
+	<%= button_to list_path(@list), method: :get, class: "cancel-edit-btn" do %>
+		Cancelar
 	<% end %>
-</div>
+<% end %>
