@@ -1,17 +1,15 @@
-<div class="todo-container">
-	<header>
-		<h1>Nova lista</h1>
-	</header>
+<header>
+	<h1>Nova lista</h1>
+</header>
 
-	<%= form_with(model: @list, id: "list-form") do |form| %>
-		<div class="form-control">
-			<div>
-				<%= form.text_field :name, id: "list-input", placeholder: "Digite o nome da lista" %>
-			</div>
-
-			<div>
-				<button type="submit" id="list-btn"><i class="fas fa-plus"></i></button>
-			</div>
+<%= form_with(model: @list, id: "list-form") do |form| %>
+	<div class="form-control">
+		<div>
+			<%= form.text_field :name, id: "list-input", placeholder: "Digite o nome da lista" %>
 		</div>
-	<% end %>
-</div>
+
+		<div>
+			<button type="submit" id="list-btn"><i class="fas fa-plus"></i></button>
+		</div>
+	</div>
+<% end %>

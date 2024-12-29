@@ -210,6 +210,10 @@ select {
     margin-right: .3rem; /* Espaçamento entre o input e o botão */
 }
 
+.form-control button {
+    height: 100%;
+}
+
 .cancel-edit-btn {
     margin-top: 1rem; /* Espaçamento entre o botão e o form */
 }
@@ -279,4 +283,43 @@ select {
 .done h3 {
     color: #fff;
     text-decoration: line-through;
+}
+
+/* The alert message box */
+.alert {
+    padding: 20px;
+    background-color: #ff520d; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}
+  
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black; 
+} 
+
+.fade-in-out {
+    opacity: 1;
+    animation: fade-out 4s .5s ease-out forwards;
+  }
+
+@keyframes fade-out {
+0% {
+    opacity: 1;
+    }
+100% {
+    opacity: 0;
+    }
 }

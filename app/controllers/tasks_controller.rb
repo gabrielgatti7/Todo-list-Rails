@@ -7,6 +7,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to list_path(@list), notice: "Tarefa criada com sucesso!"
     else
+      flash[:alert] = "A tarefa não pode estar vazia."
       render "lists/show", status: :unprocessable_entity
     end
   end
@@ -18,25 +19,26 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to list_path(@list), notice: "Tarefa atualizada com sucesso!"
     else
+      flash[:alert] = "A tarefa não pode estar vazia."
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @task.destroy
-    redirect_to list_path(@list)
+    redirect_to list_path(@list), notice: "Tarefa removida com sucesso!"
   end
 
   def toggle
     @task.completed = !@task.completed
     if @task.save
       respond_to do |format|
-        format.html { redirect_to list_path(@task.list), notice: "Tarefa atualizada." }
+        format.html { redirect_to list_path(@task.list) }
         format.json { head :no_content }
       end
     else
       respond_to do |format|
-        format.html { redirect_to list_path(@task.list), alert: "Tarefa não foi atualizada com sucesso." }
+        format.html { redirect_to list_path(@task.list), alert: "Tarefa não pode ser atualizada com sucesso." }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end

@@ -1,54 +1,52 @@
-<div class="todo-container">
-  <header>
-    <h1>TO DO List</h1>
-  </header>
+<header>
+  <h1>TO DO List</h1>
+</header>
 
-  <!-- Título da lista -->
-  <div id="list-title">
-    <h2><%= @list.name %></h2>
-    <%= button_to edit_list_path(@list), method: :get, id: "edit_list" do %>
-      <i class="fas fa-edit"></i>
-    <% end %>
-    <%= button_to @list, method: :delete, data: { turbo_confirm: 'Deseja mesmo excluir a lista?' }, id: "delete-list" do %>
-      <i class="fas fa-trash"></i>
-    <% end %>
-  </div>
-  
-  <!-- Formulário de adição de tarefa -->
-  <%= form_with(model: [@list, @list.tasks.build], local: true, id: "todo-form") do |form| %>    
-    <p>Adicionar tarefa:</p>
-    <div class="form-control">
-      <div>
-        <%= form.text_field :name, id: "todo-input", placeholder: "Digite a tarefa" %>
-      </div>
-
-      <div>
-        <button type="submit" id="todo-btn"><i class="fas fa-plus"></i></button>
-      </div>
-    </div>
+<!-- Título da lista -->
+<div id="list-title">
+  <h2><%= @list.name %></h2>
+  <%= button_to edit_list_path(@list), method: :get, id: "edit_list" do %>
+    <i class="fas fa-edit"></i>
   <% end %>
+  <%= button_to @list, method: :delete, data: { turbo_confirm: 'Deseja mesmo excluir a lista?' }, id: "delete-list" do %>
+    <i class="fas fa-trash"></i>
+  <% end %>
+</div>
 
-  <!-- Lista de tarefas -->
-  <div id="todo-list">
-    <% @list.tasks.each do |task| %>
-      <% if task.id.present? %> 
-        <% if task.completed %>
-          <div class="todo done">
-        <% else %>
-          <div class="todo">
-        <% end %>
-            <h3><%= task.name %></h3>
-            <%= button_to toggle_list_task_path(task.list, task), method: :patch, remote: true, class: 'finish-todo' do %>
-              <i class="fas fa-check"></i><td></td>
-            <% end %>
-            <%= button_to edit_list_task_path(@list, task), method: :get, class: "edit-todo" do %>
-              <i class="fas fa-edit"></i>
-            <% end %>
-            <%= button_to [@list, task], method: :delete, data: { turbo_confirm: 'Deseja mesmo excluir a tarefa?' }, class: "delete-todo" do %>
-              <i class="fas fa-trash"></i>
-            <% end %>
-          </div>
-      <% end %>
-    <% end %>
+<!-- Formulário de adição de tarefa -->
+<%= form_with(model: [@list, @list.tasks.build], local: true, id: "todo-form") do |form| %>    
+  <p>Adicionar tarefa:</p>
+  <div class="form-control">
+    <div>
+      <%= form.text_field :name, id: "todo-input", placeholder: "Digite a tarefa" %>
+    </div>
+
+    <div>
+      <button type="submit" id="todo-btn"><i class="fas fa-plus"></i></button>
+    </div>
   </div>
+<% end %>
+
+<!-- Lista de tarefas -->
+<div id="todo-list">
+  <% @list.tasks.each do |task| %>
+    <% if task.id.present? %> 
+      <% if task.completed %>
+        <div class="todo done">
+      <% else %>
+        <div class="todo">
+      <% end %>
+          <h3><%= task.name %></h3>
+          <%= button_to toggle_list_task_path(task.list, task), method: :patch, remote: true, class: 'finish-todo' do %>
+            <i class="fas fa-check"></i><td></td>
+          <% end %>
+          <%= button_to edit_list_task_path(@list, task), method: :get, class: "edit-todo" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+          <%= button_to [@list, task], method: :delete, data: { turbo_confirm: 'Deseja mesmo excluir a tarefa?' }, class: "delete-todo" do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
+        </div>
+    <% end %>
+  <% end %>
 </div>
