@@ -33,16 +33,16 @@
         // Save sidebar state to localStorage
         function saveSidebarState() {
           if (sidebar.classList.contains("active")) {
-            localStorage.setItem("sidebarState", "collapsed");
-          } else {
             localStorage.setItem("sidebarState", "expanded");
+          } else {
+            localStorage.setItem("sidebarState", "collapsed");
           }
         }
 
         // Load sidebar state from localStorage
         function loadSidebarState() {
           const state = localStorage.getItem("sidebarState");
-          if (state === "collapsed") {
+          if (state === "expanded") {
             sidebar.classList.add("active");
           } else {
             sidebar.classList.remove("active");
@@ -61,7 +61,7 @@
 
         setTimeout(function () {
           document.querySelector(".alert").style.display = "none";
-        }, 4000);
+        }, 3500);
 
       });
     </script>
