@@ -33,19 +33,21 @@
     <% @list.tasks.each do |task| %>
       <% if task.id.present? %> 
         <% if task.completed %>
-          <div class="todo completed">
+          <div class="todo done">
         <% else %>
           <div class="todo">
         <% end %>
-          <h3><%= task.name %></h3>
-          <button class="finish-todo"><i class="fas fa-check"></i><td></td></button>
-          <%= button_to edit_list_task_path(@list, task), method: :get, class: "edit-todo" do %>
-            <i class="fas fa-edit"></i>
-          <% end %>
-          <%= button_to [@list, task], method: :delete, data: { turbo_confirm: 'Deseja mesmo excluir a tarefa?' }, class: "delete-todo" do %>
-            <i class="fas fa-trash"></i>
-          <% end %>
-        </div>
+            <h3><%= task.name %></h3>
+            <%= button_to toggle_list_task_path(task.list, task), method: :patch, remote: true, class: 'finish-todo' do %>
+              <i class="fas fa-check"></i><td></td>
+            <% end %>
+            <%= button_to edit_list_task_path(@list, task), method: :get, class: "edit-todo" do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+            <%= button_to [@list, task], method: :delete, data: { turbo_confirm: 'Deseja mesmo excluir a tarefa?' }, class: "delete-todo" do %>
+              <i class="fas fa-trash"></i>
+            <% end %>
+          </div>
       <% end %>
     <% end %>
   </div>

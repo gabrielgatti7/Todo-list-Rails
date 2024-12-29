@@ -5,7 +5,11 @@
 
 Rails.application.routes.draw do
   resources :lists do
-    resources :tasks, only: [ :new, :create, :edit, :update, :destroy ]
+    resources :tasks, only: [ :new, :create, :edit, :update, :destroy ] do
+      member do
+        patch :toggle
+      end
+    end
   end
-  root "lists#index" # We can tell Rails the root route should render the Lists index action
+  root "lists#new" # We can tell Rails the root route should render the Lists new action
 end

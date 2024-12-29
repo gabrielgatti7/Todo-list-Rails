@@ -163,8 +163,11 @@ select {
 
 /* Titulo da TO DO List */
 #list-title {
-    margin-right: 1rem;
     display: flex;
+    align-items: center;
+    margin-top: .6rem;
+    margin-bottom: .3rem;
+    transition: .3s;
 }
 
 #list-title h2 {
