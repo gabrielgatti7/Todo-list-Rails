@@ -18,7 +18,7 @@ class ListsController < ApplicationController
       redirect_to list_path(@list), notice: "Lista criada com sucesso!"
     else
       flash[:alert] = "O nome da lista não pode estar vazio."
-      render :new, status: :unprocessable_entity
+      redirect_to new_list_path(@list)
     end
   end
 
@@ -30,7 +30,7 @@ class ListsController < ApplicationController
       redirect_to list_path(@list), notice: "Lista atualizada com sucesso!"
     else
       flash[:alert] = "O nome da lista não pode estar vazio."
-      render :edit, status: :unprocessable_entity
+      redirect_to edit_list_path(@list)
     end
   end
 
