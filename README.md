@@ -1,24 +1,38 @@
-# README
+# To Do List App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introdução
 
-Things you may want to cover:
+Este é um aplicativo simples de Lista de Tarefas construído com Ruby on Rails. Ele permite que os usuários criem, atualizem e deletem tarefas dentro de listas.
 
-* Ruby version
+## Funcionalidades
 
-* System dependencies
+- Criar, ler, atualizar e deletar listas
+- Criar, atualizar e deletar tarefas
+- Marcar tarefas como concluídas
 
-* Configuration
+## Versão do Ruby
 
-* Database creation
+Este projeto usa Ruby versão 3.4.1.
 
-* Database initialization
+## Instalação
 
-* How to run the test suite
+1. Clone o repositório:
+    ```sh
+    git clone https://github.com/gabrielgatti7/Todo-list-Rails.git
+    ```
+2. Instale as dependências:
+    ```sh
+    bundle install
+    ```
+3. Configure o banco de dados:
+    ```sh
+    rails db:setup
+    ```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Uso
 
-* Deployment instructions
-
-* ...
+1. Inicie o servidor Rails:
+    ```sh
+    rails server
+    ```
+2. Abra seu navegador e vá para `http://localhost:3000`
