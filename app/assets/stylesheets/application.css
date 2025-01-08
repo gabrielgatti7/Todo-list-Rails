@@ -46,6 +46,7 @@ nav .logo {
     color: #333;
     font-size: 24px;
     margin-right: 16px;
+    cursor: pointer;
 }
 
 .logo .title {
@@ -323,3 +324,7 @@ select {
     opacity: 0;
     }
 }
+
+.no-underline {
+    text-decoration: none;
+  }
