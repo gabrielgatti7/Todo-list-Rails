@@ -7,6 +7,22 @@
 			<span class="title">TO DO List App</span>
 		<% end %>
 	</div>
+
+	<% if user_signed_in? %>
+		<div class="profile">
+			<%= link_to "Profile", edit_user_registration_path %>
+		</div>
+		<div class="logout">
+			<%= button_to "Log out", destroy_user_session_path, method: :delete %>
+		</div>
+	<% else %>
+		<div class="login">
+			<%= link_to "Log in", new_user_session_path %>
+		</div>
+		<div class="signup">
+			<%= link_to "Sign up", new_user_registration_path %>
+		</div>
+	<% end %>
 	
 	<div class="sidebar">
 		<!-- Imagem de expandir e reduzir menu -->
