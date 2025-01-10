@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
   # A before_action allows you to extract shared code between actions and run it before the action
+  before_action :authenticate_user!
   before_action :set_list, only: %i[ show edit update destroy ]
 
   def index

@@ -4,6 +4,7 @@
 # To create all of the CRUD routes for the application, we can use the resources method.
 
 Rails.application.routes.draw do
+  devise_for :users
   resources :lists do
     resources :tasks, only: [ :new, :create, :edit, :update, :destroy ] do
       member do
