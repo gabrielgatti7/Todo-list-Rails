@@ -6,13 +6,16 @@ Este é um aplicativo simples de Lista de Tarefas construído com Ruby on Rails.
 
 ## Funcionalidades
 
+- Autenticação de usuários (Devise) 
 - Criar, ler, atualizar e deletar listas
 - Criar, atualizar e deletar tarefas
 - Marcar tarefas como concluídas
 
-## Versão do Ruby
+## Versões
 
-Este projeto usa Ruby versão 3.4.1.
+- Ruby: 4.3.1
+- Rails: 8.0.1
+- Devise: 4.9.4
 
 ## Instalação
 
