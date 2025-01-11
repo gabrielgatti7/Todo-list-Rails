@@ -11,10 +11,12 @@
 	<div class="menu-options">
 		<% if user_signed_in? %>
 			<div class="profile">
-				<%= link_to "Profile", edit_user_registration_path %>
+				<%= link_to edit_user_registration_path do %>
+					<i class="fa-solid fa-user"></i>
+				<% end %>
 			</div>
 			<div class="logout">
-				<%= button_to "Log out", destroy_user_session_path, method: :delete %>
+				<%= button_to "Sair", destroy_user_session_path, method: :delete %>
 			</div>
 		<% else %>
 			<div class="login">
@@ -35,25 +37,31 @@
 			<% end %>
 		</div>
 		<div class="sidebar-content">
-			<!-- Lista com o nome das listas de to do -->
-			<ul id="lists-list-menu">
-				<% @sidebar_lists.each do |list| %> 
+			<% if user_signed_in? %>
+				<!-- Lista com o nome das listas de to do -->
+				<ul id="lists-list-menu">
+					<% @sidebar_lists.each do |list| %> 
+						<li class="list-menu">
+							<%= link_to list_path(list), class: "nav-link" do %>
+								<span class="list-link"><%= list.name %></span>
+							<% end %>
+						</li>
+					<% end %>
+				</ul>
+				<div id="new-list">
+					<!-- Opção de criação de nova lista -->
 					<li class="list-menu">
-						<%= link_to list_path(list), class: "nav-link" do %>
-							<span class="list-link"><%= list.name %></span>
+						<%= link_to new_list_path, class: "nav-link" do %>
+							<i class="fa-solid fa-plus icon"></i>
+							<span class="list-link">Nova lista</span>
 						<% end %>
 					</li>
-				<% end %>
-			</ul>
-			<div id="new-list">
-				<!-- Opção de criação de nova lista -->
-				<li class="list-menu">
-					<%= link_to new_list_path, class: "nav-link" do %>
-						<i class="fa-solid fa-plus icon"></i>
-						<span class="list-link">Nova lista</span>
-					<% end %>
-				</li>
-			</div>
+				</div>
+			<% else %>
+				<div id="msg-login-sidebar">
+					<p>Para acessar as listas, <%= link_to "faça login", new_user_session_path %> ou <%= link_to "crie uma conta", new_user_registration_path %></p>
+				</div>
+			<% end %>
 		</div>
 	</div>
 </nav>

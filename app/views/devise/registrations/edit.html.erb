@@ -33,13 +33,10 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Atualizar" %>
+    <%= button_tag "Atualizar", type: :submit %>
   </div>
 <% end %>
 
-
-<h3>Cancelar minha conta</h3>
-
-<div><%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza?" }, method: :delete %></div>
-
-<%= link_to "Voltar", :back %>
+<div class="post-form">
+  <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza?" }, method: :delete %>
+</div>

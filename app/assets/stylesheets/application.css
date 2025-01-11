@@ -89,6 +89,7 @@ nav.active .sidebar {
 .sidebar .sidebar-content {
     padding: 30px 16px;
     overflow: auto;
+    height: 100%;
 }
 
 .sidebar-content .list-menu {
@@ -121,6 +122,21 @@ nav.active .sidebar {
     font-size: 20px;
     margin-right: 14px;
 }
+
+#msg-login-sidebar {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+#msg-login-sidebar p,
+#msg-login-sidebar a {
+    text-align: center;
+    color: #707070;
+}
+
 
 /* Botões */
 button {
@@ -342,11 +358,15 @@ select {
 }
 
 .auth-field {
-    margin-bottom: 1rem;
+    margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
+}
+
+.auth-field label {
+    font-weight: bold;    
 }
 
 .remember-me {
@@ -354,7 +374,15 @@ select {
 }
 
 .actions {
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.post-form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
