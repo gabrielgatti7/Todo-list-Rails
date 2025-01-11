@@ -55,6 +55,18 @@ nav .logo {
     font-weight: 500;
 }
 
+.menu-options {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.menu-options .login,
+.menu-options .profile {
+    margin-right: 1rem;
+}
+
 /* Menu lateral */
 nav .sidebar {
     position: fixed;
@@ -314,7 +326,7 @@ select {
 .fade-in-out {
     opacity: 1;
     animation: fade-out 4s .5s ease-out forwards;
-  }
+}
 
 @keyframes fade-out {
 0% {
@@ -327,4 +339,22 @@ select {
 
 .no-underline {
     text-decoration: none;
-  }
+}
+
+.auth-field {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.remember-me {
+    margin-bottom: 1rem;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
