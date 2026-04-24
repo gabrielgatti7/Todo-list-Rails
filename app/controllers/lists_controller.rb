@@ -14,7 +14,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(list_params)
+    @list = current_user.lists.build(list_params)
     if @list.save
       redirect_to list_path(@list), notice: "Lista criada com sucesso!"
     else
@@ -49,7 +49,7 @@ class ListsController < ApplicationController
       # When we visit /lists/1, the params hash contains {id: 1} which results in our show action calling
       # List.find(1) to load List with ID of 1 from the database.
 
-      @list = List.find(params[:id])
+      @list = current_user.lists.find(params[:id])
     end
 
     def list_params
