@@ -47,3 +47,4 @@ db/*.sqlite3-*
 .DS_Store
 Thumbs.db
 /config/credentials/production.key
+.kamal/secrets
