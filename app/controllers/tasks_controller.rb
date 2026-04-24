@@ -21,7 +21,7 @@ class TasksController < ApplicationController
       redirect_to list_path(@list), notice: "Tarefa atualizada com sucesso!"
     else
       flash[:alert] = "A tarefa não pode estar vazia."
-      redirect_to edit_list_task_path(@list)
+      redirect_to edit_list_task_path(@list, @task)
     end
   end
 
@@ -48,7 +48,7 @@ class TasksController < ApplicationController
   private
 
     def set_list
-      @list = List.find(params[:list_id])
+      @list = current_user.lists.find(params[:list_id])
     end
 
     def set_task
